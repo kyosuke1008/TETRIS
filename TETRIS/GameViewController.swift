@@ -11,12 +11,16 @@ import QuartzCore
 import SceneKit
 
 class GameViewController: UIViewController {
-    let CELL_SIZE   = 20; // セルのサイズ。正方形。
-    let FIELD_LEN_W = 11; // フィールドの完全幅。壁を除くと10。
-    let FIELD_LEN_H = 22; // フィールドの完全高さ。壁、テトリミノ出現領域分を除くと20。
-    let WALL = 99; // 壁コード
-    
-    let matrix:[[Int]] = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    //ブロックのサイズ
+    let BLOCK_SIZE   = 20;
+    // フィールドの完全幅。壁を除くと10。
+    let FIELD_WIDTH = 11;
+    // フィールドの高さ
+    let FIELD_HEIGHT = 22;
+    //壁コード
+    let WALL = 99;
+    //マトリクス２次元配列
+    let MATRIX:[[Int]] = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                           [99,99,99, 0, 0, 0, 0, 0, 0,99,99,99],
                           [99, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,99],
                           [99, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,99],
@@ -42,27 +46,32 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //背景を白に
         view.backgroundColor = UIColor.white
         
         var px:Int = 0
         var py:Int = 0
         
-        for y in 0...FIELD_LEN_H {
+        for y in 0...FIELD_HEIGHT {
             px = 0
-            for x in 0...FIELD_LEN_W {
+            for x in 0...FIELD_WIDTH {
+                //四角インスタンス
                 let rect = CAShapeLayer()
                 rect.strokeColor = UIColor.black.cgColor
-                if (matrix[y][x] == WALL) {
+                //壁だったら緑
+                if (MATRIX[y][x] == WALL) {
                     rect.fillColor = UIColor.green.cgColor
-                }else{
-                    rect.fillColor = UIColor.white.cgColor
                 }
+                //枠線サイズ
                 rect.lineWidth = 1.0
-                rect.path = UIBezierPath(rect:CGRect(x:px,y:py,width:CELL_SIZE,height:CELL_SIZE)).cgPath
+                rect.path = UIBezierPath(rect:CGRect(x:px,y:py,width:BLOCK_SIZE,height:BLOCK_SIZE)).cgPath
+                //描写
                 self.view.layer.addSublayer(rect)
-                px += CELL_SIZE;
+                //20px横にずらす
+                px += BLOCK_SIZE;
             }
-            py += CELL_SIZE;
+            //20px縦に基準をずらす
+            py += BLOCK_SIZE;
         }
         
     }
