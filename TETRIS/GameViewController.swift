@@ -55,21 +55,12 @@ class GameViewController: UIViewController {
         for y in 0...FIELD_HEIGHT {
             px = 0
             for x in 0...FIELD_WIDTH {
-                //四角インスタンス
-                let rect = CAShapeLayer()
-                rect.strokeColor = UIColor.black.cgColor
                 //壁だったら緑
                 if (matrix[y][x] == WALL) {
-                    rect.fillColor = UIColor.green.cgColor
-                    
+                    self.view.layer.addSublayer(getRect(x: px, y: py, color: UIColor.gray.cgColor))
                 } else {
-                    rect.fillColor = UIColor.white.cgColor
+                    self.view.layer.addSublayer(getRect(x: px, y: py, color: UIColor.white.cgColor))
                 }
-                //枠線サイズ
-                rect.lineWidth = 1.0
-                rect.path = UIBezierPath(rect:CGRect(x:px,y:py,width:BLOCK_SIZE,height:BLOCK_SIZE)).cgPath
-                //描写
-                self.view.layer.addSublayer(rect)
                 //20px横にずらす
                 px += BLOCK_SIZE
             }
@@ -86,15 +77,14 @@ class GameViewController: UIViewController {
         
         //背景を白に
         view.backgroundColor = UIColor.white
-        
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.onUpdate(_:)), userInfo: nil, repeats: true)
         
     }
     func onUpdate(_ timer : Timer){
         print(self.matrix)
-        if(check(data:self.matrix,mino: self.block.getElement(),startX: self.startX,startY: self.startY)){
+        if(check(data:self.matrix,mino: self.block.element,startX: self.startX,startY: self.startY)){
             delete()
-            drow(mino: block.getElement())
+            drow(mino: block.element)
         }else{
             for y in 0...FIELD_HEIGHT {
                 for x in 0...FIELD_WIDTH {
@@ -117,17 +107,11 @@ class GameViewController: UIViewController {
             px = 0
             for x in 0...FIELD_WIDTH {
                 //四角インスタンス
-                if (ield[y][x] != 0  && matrix[y][x] != WALL) {
-                    let rect = CAShapeLayer()
-                    rect.strokeColor = UIColor.black.cgColor
-                    rect.fillColor = UIColor.red.cgColor
+                if (ield[y][x] != 0  && matrix[y][x] != WALL && self.matrix[y][x] < 10) {
                     self.matrix[y][x] = ield[y][x]
-                    //枠線サイズ
-                    rect.lineWidth = 1.0
-                    rect.path = UIBezierPath(rect:CGRect(x:px,y:py,width:BLOCK_SIZE,height:BLOCK_SIZE)).cgPath
-                    //描写
-                    self.view.layer.addSublayer(rect)
-                    
+                    self.view.layer.addSublayer(getRect(x: px, y: py, color: block.color))
+                }else if (self.matrix[y][x] > 9 && matrix[y][x] < 99) {
+                    self.matrix[y][x] = 100
                 }
                 
                 //20px横にずらす
@@ -146,14 +130,7 @@ class GameViewController: UIViewController {
             for x in 0...FIELD_WIDTH {
                 if (self.matrix[y][x] > 0 && matrix[y][x] < 10) {
                     self.matrix[y][x] = 0
-                    let rect = CAShapeLayer()
-                    rect.strokeColor = UIColor.black.cgColor
-                    rect.fillColor = UIColor.white.cgColor
-                    //枠線サイズ
-                    rect.lineWidth = 1.0
-                    rect.path = UIBezierPath(rect:CGRect(x:px,y:py,width:BLOCK_SIZE,height:BLOCK_SIZE)).cgPath
-                    //描写
-                    self.view.layer.addSublayer(rect)
+                    self.view.layer.addSublayer(getRect(x: px, y: py, color: UIColor.white.cgColor))
                 }
                 //20px横にずらす
                 px += BLOCK_SIZE
@@ -207,6 +184,18 @@ class GameViewController: UIViewController {
         }
         
         return tmpData;
+        
+    }
+    
+    func getRect(x:Int,y:Int,color:CGColor)-> CAShapeLayer {
+        let rect = CAShapeLayer()
+        rect.strokeColor = UIColor.black.cgColor
+        rect.fillColor = color
+        //枠線サイズ
+        rect.lineWidth = 1.0
+        rect.path = UIBezierPath(rect:CGRect(x:x,y:y,width:BLOCK_SIZE,height:BLOCK_SIZE)).cgPath
+        //描写
+        return rect
         
     }
     override var shouldAutorotate: Bool {

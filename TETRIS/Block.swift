@@ -14,6 +14,7 @@ class Block {
     init() {
         number = (Int)(arc4random_uniform(6))+1
         setElement(code: number)
+        setColor(code: number)
     }
     
     
@@ -72,7 +73,7 @@ class Block {
             print(code)
         }
     }
-    func setColor(code : Int) -> CGColor {
+    func setColor(code : Int)  {
         
         switch (code) {
         case 1,10: // 棒形
@@ -80,7 +81,7 @@ class Block {
             
         case 2,20: // 正方形
             color = UIColor.yellow.cgColor
-        case 330: // S字
+        case 3,30: // S字
             color = UIColor.green.cgColor
         case 4,40: // Z字
             color = UIColor.red.cgColor
@@ -95,15 +96,5 @@ class Block {
         default:
             color = UIColor.white.cgColor
         }
-        return color
-    }
-    func getColor() -> CGColor {
-        return self.color
-    }
-    func getElement() -> [[Int]] {
-        return self.element
-    }
-    func getNumber() -> Int {
-        return self.number
     }
 }
