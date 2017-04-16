@@ -15,6 +15,7 @@
 		CF0834D61E9E468B00DF6E71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF0834D41E9E468B00DF6E71 /* LaunchScreen.storyboard */; };
 		CF0834E11E9E468B00DF6E71 /* TETRISTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0834E01E9E468B00DF6E71 /* TETRISTests.swift */; };
 		CF0834EC1E9E468B00DF6E71 /* TETRISUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0834EB1E9E468B00DF6E71 /* TETRISUITests.swift */; };
+		CF0834FA1E9F9A0600DF6E71 /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0834F91E9F9A0600DF6E71 /* Block.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		CF0834E71E9E468B00DF6E71 /* TETRISUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TETRISUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF0834EB1E9E468B00DF6E71 /* TETRISUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TETRISUITests.swift; sourceTree = "<group>"; };
 		CF0834ED1E9E468B00DF6E71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF0834F91E9F9A0600DF6E71 /* Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Block.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				CF0834D21E9E468B00DF6E71 /* Assets.xcassets */,
 				CF0834D41E9E468B00DF6E71 /* LaunchScreen.storyboard */,
 				CF0834D71E9E468B00DF6E71 /* Info.plist */,
+				CF0834F91E9F9A0600DF6E71 /* Block.swift */,
 			);
 			path = TETRIS;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF0834FA1E9F9A0600DF6E71 /* Block.swift in Sources */,
 				CF0834CE1E9E468B00DF6E71 /* GameViewController.swift in Sources */,
 				CF0834CA1E9E468B00DF6E71 /* AppDelegate.swift in Sources */,
 			);
