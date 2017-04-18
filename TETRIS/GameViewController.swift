@@ -10,6 +10,13 @@ import UIKit
 import QuartzCore
 import SceneKit
 
+enum OperationType {
+    case LEFT
+    case RIGHT
+    case DROP_OFF
+    case ROLL
+}
+
 class GameViewController: UIViewController {
     //ブロックのサイズ
     let BLOCK_SIZE   = 20;
@@ -81,8 +88,7 @@ class GameViewController: UIViewController {
         
     }
     func onUpdate(_ timer : Timer){
-        print(self.matrix)
-        if(check(data:self.matrix,mino: self.block.element,startX: self.startX,startY: self.startY)){
+        if(check(data:self.matrix,mino: self.block.element,startX: self.startX,startY: self.startY,operation: OperationType.DROP_OFF)){
             delete()
             drow(mino: block.element)
         }else{
@@ -140,12 +146,29 @@ class GameViewController: UIViewController {
         }
     }
     
-    func check( data:[[Int]],mino:[[Int]],startX:Int,startY:Int)-> Bool {
+    func check( data:[[Int]],mino:[[Int]],startX:Int,startY:Int,operation:OperationType)-> Bool {
         var px:Int
         var py:Int
         var code:Int
         
-        let tempStartY = startY+1
+        var tempStartY = 0
+        var tempStartX = 0
+        
+        switch operation {
+            
+        case OperationType.LEFT:
+            print("")
+        case OperationType.RIGHT:
+            print("")
+        case OperationType.DROP_OFF:
+             tempStartY = startY+1
+        case OperationType.ROLL:
+            print("")
+            
+        default:
+            print("")
+            
+        }
         
         if(tempStartY > 20){
             return false
@@ -186,6 +209,16 @@ class GameViewController: UIViewController {
         return tmpData;
         
     }
+    func getRollBlock(block:[[Int]]) -> [[Int]] {
+        var tmpBlock:[[Int]] = block
+        for i in 0..<block.count{
+            for j in 0..<block.count{
+                let ii = (block.count-1)-i
+                tmpBlock[j][ii] = block[i][j]
+            }
+        }
+       return tmpBlock
+    }
     
     func getRect(x:Int,y:Int,color:CGColor)-> CAShapeLayer {
         let rect = CAShapeLayer()
@@ -198,6 +231,17 @@ class GameViewController: UIViewController {
         return rect
         
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        let rollBlock = getRollBlock(block: block.element)
+        if(check(data:self.matrix,mino: rollBlock,startX: self.startX,startY: self.startY,operation: OperationType.ROLL)){
+            delete()
+            block.element = rollBlock
+            drow(mino: block.element)
+        }
+    }
+    
     override var shouldAutorotate: Bool {
         return true
     }
