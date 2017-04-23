@@ -16,6 +16,13 @@
 		CF0834E11E9E468B00DF6E71 /* TETRISTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0834E01E9E468B00DF6E71 /* TETRISTests.swift */; };
 		CF0834EC1E9E468B00DF6E71 /* TETRISUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0834EB1E9E468B00DF6E71 /* TETRISUITests.swift */; };
 		CF0834FA1E9F9A0600DF6E71 /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0834F91E9F9A0600DF6E71 /* Block.swift */; };
+		CFE3B42A1EA8EDEC003994D3 /* 7.png in Resources */ = {isa = PBXBuildFile; fileRef = CFE3B4291EA8EDEC003994D3 /* 7.png */; };
+		CFE3B4311EA8F0A5003994D3 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = CFE3B42B1EA8F0A5003994D3 /* 1.png */; };
+		CFE3B4321EA8F0A5003994D3 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = CFE3B42C1EA8F0A5003994D3 /* 2.png */; };
+		CFE3B4331EA8F0A5003994D3 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = CFE3B42D1EA8F0A5003994D3 /* 3.png */; };
+		CFE3B4341EA8F0A5003994D3 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = CFE3B42E1EA8F0A5003994D3 /* 4.png */; };
+		CFE3B4351EA8F0A5003994D3 /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = CFE3B42F1EA8F0A5003994D3 /* 5.png */; };
+		CFE3B4361EA8F0A5003994D3 /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = CFE3B4301EA8F0A5003994D3 /* 6.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +46,7 @@
 		CF0834C61E9E468B00DF6E71 /* TETRIS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TETRIS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF0834C91E9E468B00DF6E71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF0834CB1E9E468B00DF6E71 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
-		CF0834CD1E9E468B00DF6E71 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		CF0834CD1E9E468B00DF6E71 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = GameViewController.swift; sourceTree = "<group>"; };
 		CF0834D01E9E468B00DF6E71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CF0834D21E9E468B00DF6E71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF0834D51E9E468B00DF6E71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +58,13 @@
 		CF0834EB1E9E468B00DF6E71 /* TETRISUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TETRISUITests.swift; sourceTree = "<group>"; };
 		CF0834ED1E9E468B00DF6E71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF0834F91E9F9A0600DF6E71 /* Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Block.swift; sourceTree = "<group>"; };
+		CFE3B4291EA8EDEC003994D3 /* 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 7.png; sourceTree = "<group>"; };
+		CFE3B42B1EA8F0A5003994D3 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		CFE3B42C1EA8F0A5003994D3 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		CFE3B42D1EA8F0A5003994D3 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		CFE3B42E1EA8F0A5003994D3 /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
+		CFE3B42F1EA8F0A5003994D3 /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5.png; sourceTree = "<group>"; };
+		CFE3B4301EA8F0A5003994D3 /* 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +115,13 @@
 		CF0834C81E9E468B00DF6E71 /* TETRIS */ = {
 			isa = PBXGroup;
 			children = (
+				CFE3B42B1EA8F0A5003994D3 /* 1.png */,
+				CFE3B42C1EA8F0A5003994D3 /* 2.png */,
+				CFE3B42D1EA8F0A5003994D3 /* 3.png */,
+				CFE3B42E1EA8F0A5003994D3 /* 4.png */,
+				CFE3B42F1EA8F0A5003994D3 /* 5.png */,
+				CFE3B4301EA8F0A5003994D3 /* 6.png */,
+				CFE3B4291EA8EDEC003994D3 /* 7.png */,
 				CF0834C91E9E468B00DF6E71 /* AppDelegate.swift */,
 				CF0834CB1E9E468B00DF6E71 /* art.scnassets */,
 				CF0834CD1E9E468B00DF6E71 /* GameViewController.swift */,
@@ -239,8 +260,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFE3B4361EA8F0A5003994D3 /* 6.png in Resources */,
+				CFE3B4341EA8F0A5003994D3 /* 4.png in Resources */,
+				CFE3B4351EA8F0A5003994D3 /* 5.png in Resources */,
 				CF0834CC1E9E468B00DF6E71 /* art.scnassets in Resources */,
 				CF0834D61E9E468B00DF6E71 /* LaunchScreen.storyboard in Resources */,
+				CFE3B4321EA8F0A5003994D3 /* 2.png in Resources */,
+				CFE3B4331EA8F0A5003994D3 /* 3.png in Resources */,
+				CFE3B42A1EA8EDEC003994D3 /* 7.png in Resources */,
+				CFE3B4311EA8F0A5003994D3 /* 1.png in Resources */,
 				CF0834D31E9E468B00DF6E71 /* Assets.xcassets in Resources */,
 				CF0834D11E9E468B00DF6E71 /* Main.storyboard in Resources */,
 			);

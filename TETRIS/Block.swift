@@ -14,7 +14,7 @@ class Block {
     init() {
         number = (Int)(arc4random_uniform(6))+1
         setElement(code: number)
-        setColor(code: number)
+        setImage(code: number)
     }
     
     
@@ -22,49 +22,49 @@ class Block {
                            [1, 1, 1, 1],
                            [0, 0, 0, 0],
                            [0, 0, 0, 0]]
-    var color:CGColor = UIColor.white.cgColor
+    var image:String = ""
     
-    var number:Int
+    var number:Int = 0
     
     func setElement(code : Int) {
         
         switch (code) {
-        case 1,10: // 棒形
+        case 1: // 棒形
             element =
                 [[0, 0, 0, 0],
                  [1, 1, 1, 1],
                  [0, 0, 0, 0],
                  [0, 0, 0, 0]]
             
-        case 2,20: // 正方形
+        case 2: // 正方形
             element =
                 [[2, 2],
                  [2, 2]]
             
-        case 3,30: // S字
+        case 3: // S字
             element =
                 [[0, 3, 3],
                  [3, 3, 0],
                  [0, 0, 0]]
             
-        case 4,40: // Z字
+        case 4: // Z字
             element =
                 [[4, 4, 0],
                  [0, 4, 4],
                  [0, 0, 0]]
             
-        case 5,50: // J字
+        case 5: // J字
             element =
                 [[5, 0, 0],
                  [5, 5, 5],
                  [0, 0, 0]]
             
-        case 6,60: // L字
+        case 6: // L字
             element =
                 [[0, 0, 6],
                  [6, 6, 6],
                  [0, 0, 0]]
-        case 7,70: // L字
+        case 7: // T字
             element =
                 [[0, 7, 0],
                  [7, 7, 7],
@@ -73,28 +73,27 @@ class Block {
             print(code)
         }
     }
-    func setColor(code : Int)  {
+    func setImage(code : Int)  {
         
         switch (code) {
-        case 1,10: // 棒形
-            color = UIColor.cyan.cgColor
+        case 1: // 棒形
+            image = "1.png"
+        case 2: // 正方形
+            image = "2.png"
+        case 3: // S字
+            image = "3.png"
+        case 4: // Z字
+            image = "4.png"
             
-        case 2,20: // 正方形
-            color = UIColor.yellow.cgColor
-        case 3,30: // S字
-            color = UIColor.green.cgColor
-        case 4,40: // Z字
-            color = UIColor.red.cgColor
+        case 5: // J字
+            image = "5.png"
             
-        case 5,50: // J字
-            color = UIColor.blue.cgColor
-            
-        case 6,60: // L字
-            color = UIColor.orange.cgColor
-        case 7,70: // L字
-            color = UIColor.purple.cgColor
+        case 6: // L字
+            image = "6.png"
+        case 7: // L字
+            image = "7.png"
         default:
-            color = UIColor.white.cgColor
+            image = "7.png"
         }
     }
 }
