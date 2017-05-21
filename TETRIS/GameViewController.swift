@@ -57,6 +57,7 @@ class GameViewController: UIViewController {
     var startX:Int = 4
     var startY:Int = -1
     
+    //初期処理
     func initUI() {
         
         var px:Int = 0
@@ -68,7 +69,7 @@ class GameViewController: UIViewController {
                 if (matrix[y][x] == WALL) {
                     self.view.layer.addSublayer(getRect(x: px, y: py, color: UIColor.gray.cgColor))
                 } else {
-                    self.view.layer.addSublayer(getRect(x: px, y: py, color: UIColor.white.cgColor))
+                    self.view.layer.addSublayer(getRect(x: px, y: py, color: UIColor.black.cgColor))
                 }
                 //20px横にずらす
                 px += BLOCK_SIZE
@@ -85,7 +86,7 @@ class GameViewController: UIViewController {
         initUI()
         
         //背景を白に
-        view.backgroundColor = UIColor.white
+        view.backgroundColor = UIColor.black
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.onUpdate(_:)), userInfo: nil, repeats: true)
         
         // create gesturView(subView)
@@ -145,8 +146,8 @@ class GameViewController: UIViewController {
         }else{
             for y in 0...FIELD_HEIGHT {
                 for x in 0...FIELD_WIDTH {
-                    if (self.matrix[y][x] != 0 && matrix[y][x] < 10) {
-                        self.matrix[y][x] = self.block.number*10
+                    if (self.matrix[y][x] != 0 && matrix[y][x] <= 10) {
+                        self.matrix[y][x] = self.block.number*11
                     }
                 }
             }
@@ -164,14 +165,14 @@ class GameViewController: UIViewController {
             px = 0
             for x in 0...FIELD_WIDTH {
                 //四角インスタンス
-                if (ield[y][x] != 0  && matrix[y][x] != WALL && self.matrix[y][x] < 10) {
+                if (ield[y][x] != 0  && matrix[y][x] != WALL && self.matrix[y][x] <= 10) {
                     self.matrix[y][x] = ield[y][x]
                     
                     let imageView = UIImageView(frame: CGRect(x: px, y: py, width: BLOCK_SIZE, height: BLOCK_SIZE))
-                    imageView.image = UIImage(named: block.image)!
+                    imageView.image = UIImage(named: block.getImage(code: matrix[y][x]))!
                     // UIImageViewのインスタンスをビューに追加
                     self.view.addSubview(imageView)
-                }else if (self.matrix[y][x] > 9 && matrix[y][x] < WALL) {
+                }else if (self.matrix[y][x] > 10 && matrix[y][x] < WALL) {
                     self.matrix[y][x] = 100
                 }
                 
@@ -189,9 +190,9 @@ class GameViewController: UIViewController {
         for y in 0...FIELD_HEIGHT {
             px = 0
             for x in 0...FIELD_WIDTH {
-                if (self.matrix[y][x] > 0 && matrix[y][x] < 10) {
+                if (self.matrix[y][x] > 0 && matrix[y][x] <= 10) {
                     self.matrix[y][x] = 0
-                    self.view.layer.addSublayer(getRect(x: px, y: py, color: UIColor.white.cgColor))
+                    self.view.layer.addSublayer(getRect(x: px, y: py, color: UIColor.black.cgColor))
                 }
                 //20px横にずらす
                 px += BLOCK_SIZE
@@ -231,7 +232,7 @@ class GameViewController: UIViewController {
                 px = x - tempStartX; // テトロミノパターンデータ配列用のインデックス
                 py = y - tempStartY; // テトロミノパターンデータ配列用のインデックス
                 code = mino[py][px]
-                if((code > 0 && data[y][x] > 9)){
+                if((code > 0 && data[y][x] > 10)){
                     return false
                 }
             }

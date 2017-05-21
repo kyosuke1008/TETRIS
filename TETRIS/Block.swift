@@ -14,15 +14,13 @@ class Block {
     init() {
         number = (Int)(arc4random_uniform(6))+1
         setElement(code: number)
-        setImage(code: number)
     }
     
     
     var element:[[Int]] = [[0, 0, 0, 0],
-                           [1, 1, 1, 1],
+                           [1, 8, 1, 1],
                            [0, 0, 0, 0],
                            [0, 0, 0, 0]]
-    var image:String = ""
     
     var number:Int = 0
     
@@ -32,7 +30,7 @@ class Block {
         case 1: // 棒形
             element =
                 [[0, 0, 0, 0],
-                 [1, 1, 1, 1],
+                 [1, 8, 9, 10],
                  [0, 0, 0, 0],
                  [0, 0, 0, 0]]
             
@@ -73,27 +71,33 @@ class Block {
             print(code)
         }
     }
-    func setImage(code : Int)  {
+    func getImage(code : Int)->String  {
         
         switch (code) {
-        case 1: // 棒形
-            image = "1.png"
+        case 1: // 棒形(カ)
+            return "1.png"
         case 2: // 正方形
-            image = "2.png"
+            return "2.png"
         case 3: // S字
-            image = "3.png"
+            return "3.png"
         case 4: // Z字
-            image = "4.png"
+            return "4.png"
             
         case 5: // J字
-            image = "5.png"
+            return "5.png"
             
         case 6: // L字
-            image = "6.png"
+            return "6.png"
         case 7: // L字
-            image = "7.png"
+            return "7.png"
+        case 8: // 棒形(ト)
+            return "8.png"
+        case 9: // 棒形(マ)
+            return "9.png"
+        case 10: // 棒形(イ)
+            return "10.png"
         default:
-            image = "7.png"
+            return "7.png"
         }
     }
 }
